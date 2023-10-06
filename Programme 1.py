@@ -17,26 +17,36 @@ while processus_en_cours:
     while entier != 0:
         puissance = 10**(len(str(entier))-1)
         cp = entier//(puissance) #cp = chiffre_puissance
+        puissance5 = puissance*5
 
         if cp == 1 or cp == 2 or cp == 3:
             for chiffre in chiffres_romains.keys():
                 if chiffres_romains[chiffre] == puissance:
                     chiffre_final += chiffre*cp
         elif cp == 5 or cp == 6 or cp == 7 or cp == 8:
-            puissance5 = puissance*5
             difference = (cp*puissance - puissance5)//puissance
 
             for chiffre in chiffres_romains.keys():
                 if chiffres_romains[chiffre] == puissance5:
                     chiffre_final += chiffre
-                elif chiffres_romains[chiffre] == puissance:
+            for chiffre in chiffres_romains.keys():
+                if chiffres_romains[chiffre] == puissance:
                     chiffre_final += chiffre*difference
         elif cp == 4:
-            ...
+            for chiffre in chiffres_romains.keys():
+                if chiffres_romains[chiffre] == puissance:
+                    chiffre_final += chiffre 
+                if chiffres_romains[chiffre] == puissance5:
+                    chiffre_final += chiffre
+        elif cp == 9:
+            for chiffre in chiffres_romains.keys():
+                if chiffres_romains[chiffre] == puissance:
+                    chiffre_final += chiffre 
+                if chiffres_romains[chiffre] == puissance*10:
+                    chiffre_final += chiffre
 
         entier -= puissance*cp 
                 
-
     print(chiffre_final)
 
     #Si  l'utilisateur le souhaite, on sort de la boucle while
