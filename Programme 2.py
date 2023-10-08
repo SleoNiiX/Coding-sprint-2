@@ -66,21 +66,26 @@ def conversion_chiffres_romains(entier):
 mauvais_caractere = True
 
 while mauvais_caractere:
+    #On genere un nombre aleatoire et on met sa conversion dans une autre variable
     nombre_aleatoire = r.randint(0,5000)
     converti = conversion_chiffres_romains(nombre_aleatoire)
     compteur_M,compteur_X = 0,0
 
+    #Si on ne peut pas le convertir
     if converti == '':
         print(f"il n'existe pas d'ecriture en chiffres romains pour le nombre {nombre_aleatoire}")
+
     else:
         print(f"Le nombre {nombre_aleatoire} s’ ecrit {converti} en chiffres romains.")
 
+        #On compte le nombre de M et de X dans sa convertion
         for car in converti:
             if car == 'M': 
                 compteur_M += 1
             elif car == 'X': 
                 compteur_X += 1
     
+    #On arrete la boucle de conversion une fois le bon nombre de M et de X trouver
     if compteur_M == 1 and compteur_X == 2:
         mauvais_caractere = False
 
